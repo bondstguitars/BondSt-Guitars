@@ -64,3 +64,15 @@ Preferred communication style: Simple, everyday language.
 - **tailwindcss**: Utility-first CSS framework
 - **zod**: TypeScript-first schema validation
 - **react-hook-form**: Performant form library with minimal re-renders
+
+## Recent Changes
+
+### September 28, 2025 - Initial Replit Setup
+- Configured Node.js 20 environment with full dependency installation
+- Set up PostgreSQL database using Replit's built-in Neon database service
+- Created database schema and pushed to PostgreSQL using Drizzle ORM
+- Fixed development CSP (Content Security Policy) issues for Vite compatibility in Replit environment
+- Configured workflow to serve on port 5000 with proper host configuration (0.0.0.0)
+- Set up deployment configuration for autoscale with build and start commands
+- Application successfully running with frontend/backend integration
+- Note: Google Cloud Storage integration requires manual setup with service account credentials
