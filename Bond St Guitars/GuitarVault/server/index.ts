@@ -15,7 +15,14 @@ app.use(express.urlencoded({ extended: false }));
 // Use Helmet to set a few basic security headers. Helmet can be
 // customized further if necessary; see the README for details. This
 // middleware should be registered early in the stack.
-app.use(helmet());
+if (process.env.NODE_ENV === "development") {
+  // Relax CSP in development to allow Vite HMR and inline scripts
+  app.use(helmet({
+    contentSecurityPolicy: false,
+  }));
+} else {
+  app.use(helmet());
+}
 
 // Enable gzip compression for improved bandwidth efficiency. Only
 // enable in production; compression can slightly slow down responses in
