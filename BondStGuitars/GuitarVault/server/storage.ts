@@ -43,7 +43,7 @@ export class DatabaseStorage implements IStorage {
   async updateGuitar(id: string, updates: Partial<InsertGuitar>): Promise<Guitar | undefined> {
     const updateData: any = { ...updates };
     if (updates.price !== undefined) {
-      updateData.price = updates.price.toString();
+      updateData.price = updates.price;
     }
     
     const [updated] = await db

@@ -1,0 +1,119 @@
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+ │ ✓  Shell cd BondSt-Guitars && git diff "Bond St Guitars/GuitarVault/server/index.ts" (Checking the local changes in the 'server/index.ts' file.)                 │
+ │                                                                                                                                                                  │
+ │    diff --git a/Bond St Guitars/GuitarVault/server/index.ts b/Bond St Guitars/GuitarVault/server/index.ts                                                        │
+ │    index 2ba28371..c578ca3b 100644                                                                                                                               │
+ │    --- a/Bond St Guitars/GuitarVault/server/index.ts                                                                                                             │
+ │    +++ b/Bond St Guitars/GuitarVault/server/index.ts                                                                                                             │
+ │    @@ -1,3 +1,4 @@                                                                                                                                               │
+ │    +import "dotenv/config";                                                                                                                                      │
+ │     import express, { type Request, Response, NextFunction } from "express";                                                                                     │
+ │     // Additional middleware for security and performance. Helmet sets                                                                                           │
+ │     // secure HTTP headers, and compression enables gzip responses in                                                                                            │
+ │                                                                                                                                                                  │
+ │ ✓  Shell cd BondSt-Guitars && git diff "Bond St Guitars/GuitarVault/server/storage.ts" (Checking the local changes in the 'server/storage.ts' file.)             │
+ │                                                                                                                                                                  │
+ │    ... first 15 lines hidden ...                                                                                                                                 │
+ │         const updateData: any = { ...updates };                                                                                                                  │
+ │         if (updates.price !== undefined) {                                                                                                                       │
+ │    -      updateData.price = updates.price.toString();                                                                                                           │
+ │    +      updateData.price = updates.price;                                                                                                                      │
+ │         }                                                                                                                                                        │
+ │                                                                                                                                                                  │
+ │         const [updated] = await db                                                                                                                               │
+ │    @@ -93,10 +93,10 @@ export class DatabaseStorage implements IStorage {                                                                                        │
+ │           conditions.push(eq(guitars.status, filters.status));                                                                                                   │
+ │         }                                                                                                                                                        │
+ │         if (filters.minPrice !== undefined) {                                                                                                                    │
+ │    -      conditions.push(gte(guitars.price, filters.minPrice.toString()));                                                                                      │
+ │    +      conditions.push(gte(guitars.price, filters.minPrice));                                                                                                 │
+ │         }                                                                                                                                                        │
+ │         if (filters.maxPrice !== undefined) {                                                                                                                    │
+ │    -      conditions.push(lte(guitars.price, filters.maxPrice.toString()));                                                                                      │
+ │    +      conditions.push(lte(guitars.price, filters.maxPrice));                                                                                                 │
+ │         }                                                                                                                                                        │
+ │                                                                                                                                                                  │
+ │         if (conditions.length === 0) {                                                                                                                           │
+ │                                                                                                                                                                  │
+ │ ✓  Shell cd BondSt-Guitars && git diff "Bond St Guitars/GuitarVault/package.json" (Checking the local changes in the 'package.json' file.)                       │
+ │                                                                                                                                                                  │
+ │    ... first 13 lines hidden ...                                                                                                                                 │
+ │         "drizzle-zod": "^0.7.0",                                                                                                                                 │
+ │         "embla-carousel-react": "^8.6.0",                                                                                                                        │
+ │    @@ -59,6 +61,7 @@                                                                                                                                             │
+ │         "express-session": "^1.18.1",                                                                                                                            │
+ │         "framer-motion": "^11.13.1",                                                                                                                             │
+ │         "google-auth-library": "^10.3.0",                                                                                                                        │
+ │    +    "helmet": "^7.0.0",                                                                                                                                      │
+ │         "input-otp": "^1.4.2",                                                                                                                                   │
+ │         "lucide-react": "^0.453.0",                                                                                                                              │
+ │         "memorystore": "^1.6.7",                                                                                                                                 │
+ │    @@ -80,9 +83,6 @@                                                                                                                                             │
+ │         "ws": "^8.18.0",                                                                                                                                         │
+ │         "zod": "^3.24.2",                                                                                                                                        │
+ │         "zod-validation-error": "^3.4.0"                                                                                                                         │
+ │    -    ,                                                                                                                                                        │
+ │    -    "helmet": "^7.0.0",                                                                                                                                      │
+ │    -    "compression": "^1.7.4"                                                                                                                                  │
+ │       },                                                                                                                                                         │
+ │       "devDependencies": {                                                                                                                                       │
+ │         "@replit/vite-plugin-cartographer": "^0.3.1",                                                                                                            │
+ │                                                                                                                                                                  │
+ │ ✓  Shell cd BondSt-Guitars && git diff "Bond St Guitars/GuitarVault/package-lock.json" (Checking the local changes in the 'package-lock.json' file.)             │
+ │                                                                                                                                                                  │
+ │    ... first 11 lines hidden ...                                                                                                                                 │
+ │             "embla-carousel-react": "^8.6.0",                                                                                                                    │
+ │    @@ -5190,6 +5191,18 @@                                                                                                                                        │
+ │             "csstype": "^3.0.2"                                                                                                                                  │
+ │           }                                                                                                                                                      │
+ │         },                                                                                                                                                       │
+ │    +    "node_modules/dotenv": {                                                                                                                                 │
+ │    +      "version": "17.2.2",                                                                                                                                   │
+ │    +      "resolved": "https://registry.npmjs.org/dotenv/-/dotenv-17.2.2.tgz",                                                                                   │
+ │    +      "integrity": "sha512-Sf2LSQP+bOlhKWWyhFsn0UsfdK/kCWRv1iuA2gXAwt3dyNabr6QSj00I2V10pidqz69soatm9ZwZvpQMTIOd5Q==",                                        │
+ │    +      "license": "BSD-2-Clause",                                                                                                                             │
+ │    +      "engines": {                                                                                                                                           │
+ │    +        "node": ">=12"                                                                                                                                       │
+ │    +      },                                                                                                                                                     │
+ │    +      "funding": {                                                                                                                                           │
+ │    +        "url": "https://dotenvx.com"                                                                                                                         │
+ │    +      }                                                                                                                                                      │
+ │    +    },                                                                                                                                                       │
+ │         "node_modules/drizzle-kit": {                                                                                                                            │
+ │           "version": "0.31.4",                                                                                                                                   │
+ │           "resolved": "https://registry.npmjs.org/drizzle-kit/-/drizzle-kit-0.31.4.tgz",                                                                         │
+ │                                                                                                                                                                  │
+ │ ✓  Shell cd BondSt-Guitars && git diff "Bond St Guitars/GuitarVault/dist/index.js" (Checking the local changes in the 'dist/index.js' file.)                     │
+ │                                                                                                                                                                  │
+ │    ... first 23 lines hidden ...                                                                                                                                 │
+ │         const updateData = { ...updates };                                                                                                                       │
+ │         if (updates.price !== void 0) {                                                                                                                          │
+ │    -      updateData.price = updates.price.toString();                                                                                                           │
+ │    +      updateData.price = updates.price;                                                                                                                      │
+ │         }                                                                                                                                                        │
+ │         const [updated] = await db.update(guitars).set(updateData).where(eq(guitars.id, id)).returning();                                                        │
+ │         return updated || void 0;                                                                                                                                │
+ │    @@ -191,10 +192,10 @@ var DatabaseStorage = class {                                                                                                           │
+ │           conditions.push(eq(guitars.status, filters.status));                                                                                                   │
+ │         }                                                                                                                                                        │
+ │         if (filters.minPrice !== void 0) {                                                                                                                       │
+ │    -      conditions.push(gte(guitars.price, filters.minPrice.toString()));                                                                                      │
+ │    +      conditions.push(gte(guitars.price, filters.minPrice));                                                                                                 │
+ │         }                                                                                                                                                        │
+ │         if (filters.maxPrice !== void 0) {                                                                                                                       │
+ │    -      conditions.push(lte(guitars.price, filters.maxPrice.toString()));                                                                                      │
+ │    +      conditions.push(lte(guitars.price, filters.maxPrice));                                                                                                 │
+ │         }                                                                                                                                                        │
+ │         if (conditions.length === 0) {                                                                                                                           │
+ │           return await db.select().from(guitars);                                                                                                                │
+ ╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+✦ Here are the local changes:
+
+   * `server/index.ts`:
+       * import "dotenv/config"; was added to load environment variables.
+   * `server/storage.ts`:
+       * The price is no longer converted to a string before database operations.
+   * `package.json`:
+       * The dotenv package was added as a dependency.
+   * `package-lock.json` and `dist/index.js`:
+       * These files were updated to reflect the changes above.

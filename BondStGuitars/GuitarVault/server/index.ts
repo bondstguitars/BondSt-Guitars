@@ -1,3 +1,4 @@
+import "dotenv/config";
 import express, { type Request, Response, NextFunction } from "express";
 // Additional middleware for security and performance. Helmet sets
 // secure HTTP headers, and compression enables gzip responses in
