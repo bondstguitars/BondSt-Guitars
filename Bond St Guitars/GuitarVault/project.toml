@@ -1,5 +1,0 @@
-[[build.buildpacks]]
-id = "gcr.io/buildpacks/nodejs"
-
-[build.env]
-GOOGLE_NODEJS_VERSION = "20"
