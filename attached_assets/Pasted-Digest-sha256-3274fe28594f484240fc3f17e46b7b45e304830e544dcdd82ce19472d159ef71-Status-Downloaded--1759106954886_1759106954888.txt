@@ -1,0 +1,54 @@
+Digest: sha256:3274fe28594f484240fc3f17e46b7b45e304830e544dcdd82ce19472d159ef71
+Status: Downloaded newer image for buildpacksio/lifecycle:0.20.5
+===> ANALYZING
+[analyzer] Image with name "us-east4-docker.pkg.dev/bond-st-guitars/cloud-run-source-deploy/bondst-guitars/bond-st-guitars:11a4abed582ae813a610f737968a2c15a3940a99" not found
+===> DETECTING
+[detector] target distro name/version labels not found, reading /etc/os-release file
+===> BUILDING
+[builder] target distro name/version labels not found, reading /etc/os-release file
+[builder] === Python - Runtime (google.python.runtime@0.9.1) ===
+[builder] layers path: /layers/google.python.runtime/python
+[builder] Python version not specified, using the latest available Python runtime for the stack "ubuntu2204"
+[builder] 2025/09/29 00:40:46 [DEBUG] GET https://dl.google.com/runtimes/ubuntu2204/python/version.json
+[builder] Installing Python v3.13.7.
+[builder] 2025/09/29 00:40:47 [DEBUG] GET https://dl.google.com/runtimes/ubuntu2204/python/python-3.13.7.tar.gz
+[builder] === Python - Webserver (google.python.webserver@0.9.1) ===
+[builder] === Python - Pip (google.python.pip@0.9.2) ===
+[builder] ***** CACHE MISS: "pip"
+[builder] Installing application dependencies.
+[builder] Setting environment variable PYTHONUSERBASE=/layers/google.python.pip/pip
+[builder] --------------------------------------------------------------------------------
+[builder] Running "python3 -m pip install --requirement /cnb/buildpacks/google.python.webserver/0.9.1/requirements.txt --upgrade --upgrade-strategy only-if-needed --no-warn-script-location --no-warn-conflicts --force-reinstall --no-compile --disable-pip-version-check --no-cache-dir --user"
+[builder] Collecting gunicorn==21.2.0 (from -r /cnb/buildpacks/google.python.webserver/0.9.1/requirements.txt (line 1))
+[builder]   Downloading gunicorn-21.2.0-py3-none-any.whl.metadata (4.1 kB)
+[builder] Collecting packaging (from gunicorn==21.2.0->-r /cnb/buildpacks/google.python.webserver/0.9.1/requirements.txt (line 1))
+[builder]   Downloading packaging-25.0-py3-none-any.whl.metadata (3.3 kB)
+[builder] Downloading gunicorn-21.2.0-py3-none-any.whl (80 kB)
+[builder] Downloading packaging-25.0-py3-none-any.whl (66 kB)
+[builder] Installing collected packages: packaging, gunicorn
+[builder] 
+[builder] Successfully installed gunicorn-21.2.0 packaging-25.0
+[builder] Done "python3 -m pip install --requirement /cnb/buildpacks/google...." (2.784737349s)
+[builder] --------------------------------------------------------------------------------
+[builder] Running "python3 -m compileall --invalidation-mode unchecked-hash -qq /layers/google.python.pip/pip"
+[builder] Done "python3 -m compileall --invalidation-mode unchecked-hash -qq..." (191.206664ms)
+[builder] Checking for incompatible dependencies.
+[builder] --------------------------------------------------------------------------------
+[builder] Running "python3 -m pip check"
+[builder] No broken requirements found.
+[builder] Done "python3 -m pip check" (392.507332ms)
+[builder] === Python - Missing Entrypoint (google.python.missing-entrypoint@0.9.0) ===
+[builder] --------------------------------------------------------------------------------
+[builder] failed to build: for Python, provide a main.py or app.py file or set an entrypoint with "GOOGLE_ENTRYPOINT" env var or by creating a "Procfile" file
+[builder] --------------------------------------------------------------------------------
+[builder] Sorry your project couldn't be built.
+[builder] Our documentation explains ways to configure Buildpacks to better recognise your project:
+[builder]  -> https://cloud.google.com/docs/buildpacks/overview
+[builder] If you think you've found an issue, please report it:
+[builder]  -> https://github.com/GoogleCloudPlatform/buildpacks/issues/new
+[builder] --------------------------------------------------------------------------------
+[builder] ERROR: failed to build: exit status 1
+ERROR: failed to build: executing lifecycle. This may be the result of using an untrusted builder: failed with status code: 51
+Finished Step #0 - "Buildpack"
+ERROR
+ERROR: build step 0 "gcr.io/k8s-skaffold/pack" failed: step exited with non-zero status: 1
