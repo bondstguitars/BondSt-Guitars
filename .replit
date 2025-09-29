@@ -24,7 +24,7 @@ author = "agent"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "cd \"Bond St Guitars/GuitarVault\" && npm run dev"
+args = "cd \"BondStGuitars/GuitarVault\" && npm run dev"
 waitForPort = 5000
 
 [workflows.workflow.metadata]
@@ -35,15 +35,11 @@ localPort = 5000
 externalPort = 80
 
 [[ports]]
-localPort = 8080
-externalPort = 8080
-
-[[ports]]
 localPort = 32993
 externalPort = 3000
 
 [[ports]]
-localPort = 37281
+localPort = 46711
 externalPort = 3001
 
 [deployment]
